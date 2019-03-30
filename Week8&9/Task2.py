@@ -106,7 +106,6 @@ class iteratefromdict():
             return self.namlab[self.ct - 1][0], self.namlab[self.ct - 1][1]
 
 
-
 ### Customized RNN
 class RNN(torch.nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, output_size):
@@ -159,7 +158,6 @@ def trainRNN(model, optimizer, train_iter, batch_size):
     return opt_loss
 
 
-
 def testRNN(model, test_iter, batch_size):
     criterion = torch.nn.NLLLoss()
     model.eval()
@@ -182,7 +180,6 @@ def testRNN(model, test_iter, batch_size):
         val_loss, correct, test_iter.num()*batch_size,
         100. * final_acc))
     return final_acc, val_loss
-
 
 
 def prepare_batch(x, y):
@@ -228,7 +225,6 @@ def nn(input_size, hidden_size, num_layers, output_size, num_epoch, train_itr, t
             best_acc = final_acc
             best_model = model.state_dict()
     return train_lost_list, val_loss_list, val_acc_list, best_epoch
-
 
 
 def plot_graph(train_lost_list, val_loss_list, val_acc_list, best_epoch, flag):
